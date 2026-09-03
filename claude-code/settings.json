@@ -1,0 +1,262 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "env": {
+    "CLAUDE_CODE_WORKFLOWS": "1",
+    "DISABLE_GROWTHBOOK": "1",
+    "DISABLE_ERROR_REPORTING": "1",
+    "DISABLE_TELEMETRY": "1",
+    "HOME": "C:\\Users\\yourname",
+    "MCP_TIMEOUT": "60000",
+    "USERPROFILE": "C:\\Users\\yourname",
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
+  },
+  "includeCoAuthoredBy": false,
+  "permissions": {
+    "allow": [
+      "Bash",
+      "BashOutput",
+      "Edit",
+      "Grep",
+      "KillShell",
+      "NotebookEdit",
+      "Read",
+      "Skill",
+      "SlashCommand",
+      "Task",
+      "TodoWrite",
+      "WebFetch",
+      "WebSearch",
+      "Write",
+      "AskUserQuestion",
+      "EnterPlanMode",
+      "ExitPlanMode",
+      "mcp__exa",
+      "mcp__context7",
+      "mcp__playwright",
+      "mcp__memory",
+      "mcp__sequential-thinking",
+      "mcp__time"
+    ],
+    "deny": []
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"C:\\Users\\yourname\\.claude\\scripts\\hooks\\posttooluse-advisory.mjs\""
+          },
+          {
+            "type": "command",
+            "command": "node \"C:\\Users\\yourname\\.claude\\scripts\\hooks\\context-degradation-guard.mjs\""
+          },
+          {
+            "type": "command",
+            "command": "node \"C:\\Users\\yourname\\.claude\\scripts\\hooks\\rule-inject.mjs\""
+          }
+        ]
+      },
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "C:/Users/yourname/.orca/agent-hooks/claude-hook.cmd",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"C:\\Users\\yourname\\.claude\\scripts\\hooks\\danger-gate.mjs\""
+          }
+        ]
+      },
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"C:\\Users\\yourname\\.claude\\scripts\\hooks\\pretooluse-advisory.mjs\""
+          }
+        ]
+      },
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "C:/Users/yourname/.orca/agent-hooks/claude-hook.cmd",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"C:\\Users\\yourname\\.claude\\scripts\\hooks\\stop-console-scan.mjs\""
+          },
+          {
+            "type": "command",
+            "command": "node \"C:\\Users\\yourname\\.claude\\scripts\\session-snapshot.mjs\""
+          }
+        ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "C:/Users/yourname/.orca/agent-hooks/claude-hook.cmd",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"C:\\Users\\yourname\\.claude\\scripts\\session-snapshot.mjs\""
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"C:\\Users\\yourname\\.claude\\scripts\\session-snapshot.mjs\""
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "C:/Users/yourname/.orca/agent-hooks/claude-hook.cmd",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "StopFailure": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "C:/Users/yourname/.orca/agent-hooks/claude-hook.cmd",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "PostToolUseFailure": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "C:/Users/yourname/.orca/agent-hooks/claude-hook.cmd",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "PermissionRequest": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "C:/Users/yourname/.orca/agent-hooks/claude-hook.cmd",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "node \"C:\\Users\\yourname\\.claude\\statusline-command.sh\"",
+    "padding": 0
+  },
+  "enabledPlugins": {
+    "autoresearch@autoresearch": true,
+    "codex@openai-codex": true,
+    "superpowers@superpowers-marketplace": true,
+    "jdtls-lsp@claude-plugins-official": true,
+    "frontend-design@claude-plugins-official": true,
+    "feature-dev@claude-plugins-official": true,
+    "playwright@claude-plugins-official": true,
+    "plugin-dev@claude-plugins-official": true,
+    "pr-review-toolkit@claude-plugins-official": true,
+    "commit-commands@claude-plugins-official": true,
+    "code-review@claude-plugins-official": true
+  },
+  "extraKnownMarketplaces": {
+    "daymade-skills": {
+      "source": {
+        "source": "github",
+        "repo": "daymade/claude-code-skills"
+      }
+    },
+    "claude-code-workflows": {
+      "source": {
+        "source": "github",
+        "repo": "wshobson/agents"
+      }
+    },
+    "anthropic-agent-skills": {
+      "source": {
+        "source": "github",
+        "repo": "anthropics/skills"
+      }
+    },
+    "superpowers-marketplace": {
+      "source": {
+        "source": "github",
+        "repo": "obra/superpowers-marketplace"
+      }
+    },
+    "openai-codex": {
+      "source": {
+        "source": "github",
+        "repo": "openai/codex-plugin-cc"
+      }
+    },
+    "autoresearch": {
+      "source": {
+        "source": "github",
+        "repo": "uditgoenka/autoresearch"
+      }
+    },
+    "claude-plugins-official": {
+      "source": {
+        "source": "github",
+        "repo": "anthropics/claude-plugins-official"
+      }
+    }
+  },
+  "effortLevel": "medium",
+  "autoUpdatesChannel": "latest",
+  "skipDangerousModePermissionPrompt": true,
+  "theme": "dark-ansi",
+  "model": "claude-fable-5[1m]"
+}

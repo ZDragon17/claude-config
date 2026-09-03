@@ -1,0 +1,101 @@
+# ============= Claude Code 配置目录 gitignore =============
+
+# === 缓存/临时（永不提交）===
+cache/
+backups/
+file-history/
+paste-cache/
+debug/
+downloads/
+sessions/
+shell-snapshots/
+todos/
+transcripts/
+tasks/
+telemetry/
+statsig/
+session-env/
+ide/
+_e2e-scratch/
+_e2e-*
+.orch-state.json
+_orch-*/
+
+# === 历史/状态（机器特定）===
+history.jsonl
+*.jsonl
+context-smart-state.json
+current-persona.txt
+stats-cache.json
+mcp-needs-auth-cache.json
+
+# === 备份/废弃文件 ===
+*.bak
+*.bak.*
+*.bak-*
+*.deprecated
+output-styles.deprecated/
+settings.json.antigravity.bak
+
+# === 项目会话记录（路径绑机器，排除会话相关文件，保留 memory/）===
+# 修复说明：原 `projects/*/` 把整个目录 ignore 后，!re-include 失效（git gitignore 规则限制）。
+# 改为只 ignore 各项目目录下的会话相关文件，memory/ 自然就能跨电脑同步了。
+projects/*.jsonl
+projects/**/*.jsonl
+projects/**/sessions-index.json
+# 会话工件（每条 tool call 的元数据/输出快照，机器特定，量极大）
+projects/**/subagents/
+projects/**/tool-results/
+projects/**/*.meta.json
+# UUID 会话目录里的产物（json/txt/js），按扩展名挡——memory/ 只有 .md，天然保留，可跨机同步。
+# 不能直接 ignore projects/ 整目录（见上方"修复说明"，re-include memory/ 会失效）。
+projects/**/*.json
+projects/**/*.txt
+projects/**/*.js
+
+# === 插件缓存/运行时数据（新机重装更干净）===
+plugins/cache/
+plugins/marketplaces/
+plugins/data/
+
+# === 本地敏感/机器级配置 ===
+settings.local.json
+mode.json
+plugins/installed_plugins.json
+plugins/blocklist.json
+plugins/plugin-catalog-cache.json
+
+# === 本地凭据（绝不提交）===
+.credentials.json
+.credentials.json*
+
+# === 运行时目录/文件（机器特定，永不提交）===
+daemon/
+daemon.lock
+daemon.log
+daemon.status.json
+jobs/
+teams/
+plans/
+.claude/
+
+# === 本地状态（机器特定，无需同步）===
+.last-cleanup
+.last-update-result.json
+image-cache/
+plugins/.last_inuse_sweep
+plugins/known_marketplaces.json
+
+# === skill 依赖（新机器 npm install 重新拉）===
+skills/**/node_modules/
+
+# === 其他 ===
+*.tmp
+*.swp
+.DS_Store
+Thumbs.db
+
+# 备份/缓存/归档（不入库）
+_archive/
+.cache/
+_audit-backup-*/

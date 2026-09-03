@@ -1,0 +1,62 @@
+{
+  "description": "Claude Code 插件安装清单 — 新机器恢复用（已精简至核心11个）",
+  "updated": "2026-06-28",
+  "total": 11,
+  "plugins": [
+    {
+      "name": "autoresearch",
+      "marketplace": "autoresearch",
+      "version": "2.2.1"
+    },
+    {
+      "name": "code-review",
+      "marketplace": "claude-plugins-official",
+      "version": "unknown"
+    },
+    {
+      "name": "commit-commands",
+      "marketplace": "claude-plugins-official",
+      "version": "unknown"
+    },
+    {
+      "name": "feature-dev",
+      "marketplace": "claude-plugins-official",
+      "version": "unknown"
+    },
+    {
+      "name": "frontend-design",
+      "marketplace": "claude-plugins-official",
+      "version": "unknown"
+    },
+    {
+      "name": "jdtls-lsp",
+      "marketplace": "claude-plugins-official",
+      "version": "1.0.0"
+    },
+    {
+      "name": "playwright",
+      "marketplace": "claude-plugins-official",
+      "version": "unknown"
+    },
+    {
+      "name": "plugin-dev",
+      "marketplace": "claude-plugins-official",
+      "version": "unknown"
+    },
+    {
+      "name": "pr-review-toolkit",
+      "marketplace": "claude-plugins-official",
+      "version": "unknown"
+    },
+    {
+      "name": "codex",
+      "marketplace": "openai-codex",
+      "version": "1.0.5"
+    },
+    {
+      "name": "superpowers",
+      "marketplace": "superpowers-marketplace",
+      "version": "6.0.3"
+    }
+  ]
+}
