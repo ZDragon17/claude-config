@@ -1,6 +1,12 @@
-# agent-config — 个人 Agent 操作系统
+# agent-config — 给 AI 编程助手装一套「操作系统」
 
-一套**跨 agent 复用**的个人配置体系：通用层（规则 / 技能 / 记忆）对所有 agent 生效，Claude Code 专属层（hooks / 子代理 / 斜杠命令）单独隔离。已在本机 ZCode、Claude Code、Codex 三个 agent 上实测共享。
+## 你是不是也遇到过这些？
+
+- AI 干活干到一半，`rm -rf`、无 WHERE 的 UPDATE 就招呼上去，你只能全神贯注盯着屏幕喊停
+- 换台电脑、换个 agent，调教半天的规则全部重来
+- AI 每次「重新发明」你的工作方式，从不记得你上次纠正过它什么
+
+这套东西就是为这些疼生的：**通用规则层（任何 agent 都认）+ Claude Code 专属层（危险操作硬卡点、上下文守卫、会话续接）**。已在本机 ZCode、Claude Code、Codex 三个 agent 上实测共享。
 
 > 前身是 `claude-config`（Claude Code 单绑定版），重构为「通用 + 适配」两层后开源。
 > 本体系的核心方法论（Loop Engineering：改 → 量 → 留/弃 的自收敛循环工程）见 [docs/loop-engineering-practice.md](docs/loop-engineering-practice.md)。
